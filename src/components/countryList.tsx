@@ -1,7 +1,8 @@
 import React from "react";
+import { CountryData } from "../interfaces/CountryData";
 
 type Props = {
-  countryListArr: Array<any> | null;
+  countryListArr: Array<CountryData> | null;
   selectCountry: React.ChangeEventHandler<HTMLSelectElement>;
 };
 

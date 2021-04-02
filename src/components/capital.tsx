@@ -1,12 +1,18 @@
 import React from "react";
+import { CountryData } from "../interfaces/CountryData";
+import { CapitalData } from "../interfaces/CapitalData";
 
 type Props = {
-  selectedCountry: any;
-  capitalData: any;
-  showCountryCapital: React.ReactEventHandler<HTMLButtonElement>
+  selectedCountry: CountryData;
+  capitalData: CapitalData | null;
+  showCountryCapital: React.ReactEventHandler<HTMLButtonElement>;
 };
 
-const Capital: React.FC<Props> = ({ selectedCountry, capitalData, showCountryCapital}) => {
+const Capital: React.FC<Props> = ({
+  selectedCountry,
+  capitalData,
+  showCountryCapital,
+}) => {
   return (
     <div className="capital">
       <div style={{ display: "inline-flex" }}>

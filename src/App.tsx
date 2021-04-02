@@ -4,13 +4,17 @@ import Service from "./service";
 import CountryForm from "./components/countryForm";
 import CountryList from "./components/countryList";
 import Capital from "./components/capital";
+import { CountryData } from "./interfaces/CountryData";
+import { CapitalData } from "./interfaces/CapitalData";
 
 function App() {
   const [step, setStep] = useState<number>(0);
   const [countryName, setCountryName] = useState<string | null>(null);
-  const [countryListArr, setCountryListArr] = useState<Array<any>>([]);
-  const [selectedCountry, setSelectedCountry] = useState<any>(null);
-  const [capitalData, setCapitalData] = useState<any>(null);
+  const [countryListArr, setCountryListArr] = useState<Array<CountryData>>([]);
+  const [selectedCountry, setSelectedCountry] = useState<CountryData | null>(
+    null
+  );
+  const [capitalData, setCapitalData] = useState<CapitalData | null>(null);
 
   const handleCountryOnChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setCountryName(e.target.value);
@@ -28,7 +32,7 @@ function App() {
 
   const showCountryCapital = async () => {
     const api_url = Service.weatherstackAPI;
-    const params = `access_key=${Service.weatherstackAPIKey}&query=${selectedCountry.capital}`;
+    const params = `access_key=${Service.weatherstackAPIKey}&query=${selectedCountry?.capital}`;
     const response = await Service.makeAPICall(
       Service.getMethod,
       api_url,
@@ -47,7 +51,11 @@ function App() {
       {step === 2 ? (
         <>
           {selectedCountry && (
-            <Capital selectedCountry={selectedCountry} capitalData={capitalData} showCountryCapital={showCountryCapital} />
+            <Capital
+              selectedCountry={selectedCountry}
+              capitalData={capitalData}
+              showCountryCapital={showCountryCapital}
+            />
           )}
         </>
       ) : step === 1 ? (
