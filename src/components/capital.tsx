@@ -10,7 +10,7 @@ const Capital: React.FC<Props> = ({ selectedCountry, capitalData, showCountryCap
   return (
     <div className="capital">
       <div style={{ display: "inline-flex" }}>
-        <div>
+        <div style={{ marginRight: "10px" }}>
           <img
             src={selectedCountry.flag}
             alt="country flag"

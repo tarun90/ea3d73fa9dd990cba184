@@ -47,7 +47,7 @@ function App() {
       {step === 2 ? (
         <>
           {selectedCountry && (
-            <Capital selectedCountry={selectedCountry} capitalData={capitalData} showCountryCapital={showCountryCapital}  />
+            <Capital selectedCountry={selectedCountry} capitalData={capitalData} showCountryCapital={showCountryCapital} />
           )}
         </>
       ) : step === 1 ? (
